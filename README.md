@@ -4,22 +4,15 @@
 
 First create a MySQL DATABASE with rest_multer_sequelize.sql file.
 
+# Must hard code an User with role:"Admin"
+
 # API Routes
 
-GET / users - Get All Users
+GET /api/users - Get All Users
 
-GET / users /id- Get Single User with the corresponded id
+GET /api/users /id- Get Single User with the corresponded id
 
-POST /users - Create New User
-
-In body: {
-"username":"username",
-"email":"email@email.com",
-"pass":"password",
-"photo":"an image file"
-}
-
-PUT / users /id - Update Single User with the corresponded id
+POST /api/users - Create New User
 
 In body: {
 "username":"username",
@@ -28,25 +21,34 @@ In body: {
 "photo":"an image file"
 }
 
-PATCH / users /id - Update Single User.name with the corresponded id
+PUT /api/users /id - Update Single User with the corresponded id
+
+In body: {
+"username":"username",
+"email":"email@email.com",
+"pass":"password",
+"photo":"an image file"
+}
+
+PATCH /api/users /id - Update Single User.name with the corresponded id
 
 In body: {
 "username":"username"
 }
 
-DELETE / users /id - Delete Single User with the corresponded id
+DELETE /api/users /id - Delete Single User with the corresponded id
 
 In body: {
 "pass":"password"
 }
 
-POST / login – Login
+POST /api/login – Login
 
 {
 "email":"email@email.com",
 "pass":"password"
 }
 
-GET / profile - Profile
+GET /api/profile - Profile
 
 In Authorization the JSONWebToken from login when requested
