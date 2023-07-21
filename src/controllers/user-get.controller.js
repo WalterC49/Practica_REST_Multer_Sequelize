@@ -2,16 +2,16 @@ import userModel from "../models/userModel.js";
 import { BadRequestError } from "../utils/AppError.js";
 
 const userGetController = async (req, res) => {
-  const { id } = req.params;
+  const { id: userId } = req.params;
 
-  const user = await userModel.findByPk(id);
+  const user = await userModel.findByPk(userId);
 
   if (!user)
     throw new BadRequestError("No existe un usuario con ese 'id'.", 404);
 
-  const { _id, username, email, role, avatar } = user;
+  const { id, username, email, role, avatar } = user;
 
-  return res.send({ _id, username, email, role, avatar });
+  return res.send({ id, username, email, role, avatar });
 };
 
 export default userGetController;
